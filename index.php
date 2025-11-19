@@ -79,14 +79,17 @@ foreach ($file_labels as $file_id => $file_label) {
 	if ($error == 4) {
 		// echo "File '$file_id':<br />\n";
 		// echo "... File not passed";
+		// echo "<br />\n";
 	}
 	elseif ($error) {
+		echo "File '$file_id':<br />\n";
 		echo "... Error #$error: ";
 		echo $error_msg[$error];
 		echo "<br />\n";
 	} else {
 		$tmp_name = $File['tmp_name'];
 		$orig_name = $File['name'];
+		echo "File '$file_id':<br />\n";
 		echo "... temp " . "'" . $tmp_name . "'" . "<br />\n";
 		echo "... orig " . "'" . $orig_name . "'" . "<br />\n";
 		echo "... real " . "'" . $file_name . "'" . "<br />\n";
@@ -96,8 +99,8 @@ foreach ($file_labels as $file_id => $file_label) {
 		} else {
 			echo "==> ERROR!<br />";
 		}
-	}
 	echo "<br />\n";
+}
 }
 $files_needed = 0;
 ?>
