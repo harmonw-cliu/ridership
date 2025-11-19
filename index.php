@@ -75,10 +75,10 @@ foreach ($file_labels as $file_id => $file_label) {
 	$file_paths[$file_id] = $real_name;
 
 	$File = $_FILES[$file_id] ?? ['error' => 4];
-	echo "File '$file_id':<br />\n";
 	$error = $File['error'];
 	if ($error == 4) {
-		echo "... File not passed";
+		// echo "File '$file_id':<br />\n";
+		// echo "... File not passed";
 	}
 	elseif ($error) {
 		echo "... Error #$error: ";
