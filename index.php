@@ -99,8 +99,8 @@ foreach ($file_labels as $file_id => $file_label) {
 		} else {
 			echo "==> ERROR!<br />";
 		}
-	echo "<br />\n";
-}
+		echo "<br />\n";
+	}
 }
 $files_needed = 0;
 ?>
@@ -145,15 +145,23 @@ $files_needed = 0;
 	</form>
 	<?php
 	if (! $files_needed) {
-		?>
-	<form action="./" method="post" enctype="multipart/form-data">
+		$process = $_GET['process'] ?? "";
+		if (! $process) {
+			?>
+	<form action="./" method="get" enctype="multipart/form-data">
 		<input type="hidden" name="data_month" value="<?=$data_month?>">
+		<input type="hidden" name="process" value="process">
 		<tr><td colspan="2" align="right"><input type="submit" name="submit" value="Process"></td></tr>
 	</form>
-		<?php
+			<?php
+		}
 	}
 	?>
 	</table>
-
+	<?php
+	if ($process) {
+		echo "PROCESS: WRITE ME<br />\n";
+	}
+	?>
 </body>
 </html>
