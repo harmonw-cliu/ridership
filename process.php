@@ -21,6 +21,7 @@ require_once "include/az.php";
 require_once "vendor/autoload.php";
 
 use Shuchkin\SimpleXLSX;
+use \avadim\FastExcelWriter\Excel;
 
 $data_month = $_POST['data_month'] ?? $_GET['data_month'] ?? "";
 if (! $data_month) {
@@ -450,6 +451,19 @@ function zpass_output($data, $constants) {
 	}
 
 	return $answer;
+}
+
+function export_data_as_excel($data, $filename, $sheetname='Sheet1') {
+	$excel = Excel::create([$sheetname]);
+	$sheet = $excel->sheet();
+	foreach ($data as $row) {
+		$rowOptions = [
+			'height' => 20,
+		];
+		$sheet->writeRow($row, $rowOptions);
+	}
+	$excel->save($filename);
+	// $excel->save("$filename.xlsx");
 }
 
 // strftime is deprecated as of PHP 8.1: use date() or DateTime::format() instead
