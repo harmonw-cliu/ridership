@@ -567,6 +567,8 @@ foreach ($file_labels as $file_id => $file_label) {
 <?php
 $students = [];
 
+echo "<hr />\n";
+
 $zpass = load_xls($file_paths['ZPASS']);
 // echo 'zpass_data: ' . count($zpass) . "<br/>\n";
 
@@ -586,8 +588,6 @@ $index_list = [
 $student_id_replacements = [
 	3153276528 => 5623149936,
 ];
-
-echo "<hr />\n";
 
 $zpass_filtered = [];
 $zpass_with_id_found = [];
