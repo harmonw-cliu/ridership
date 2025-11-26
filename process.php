@@ -1,11 +1,11 @@
 <?php
-require_once "include/az.php";
-require_once "include/header.php";
-
 // NOTE: we're doing a student ID translation for one student,
 // (3153276528 -> 5623149936   # Changed per Robin Miller's instruction; PAID changed)
 // and it's unclear whether this needs to happen *prior* to
 // looking each student up in the Medicare files or *afterwards*.
+
+require_once "include/az.php";
+require_once "include/header.php";
 
 require_once "include/data_month_required.php";
 require_once "include/user_name_required.php";
