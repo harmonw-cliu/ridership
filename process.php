@@ -596,6 +596,8 @@ $zpass_with_date = [];
 $zpass_split_id_day = [];
 $zpass_clean = [];
 $zpass_output = [];
+$zpass_output_split = [];
+
 foreach (['EI', 'SA'] as $grade) {
 	echo "<hr />\n";
 	echo "<h2>grade = '$grade':</h2>\n";
@@ -627,8 +629,14 @@ foreach (['EI', 'SA'] as $grade) {
 	dump_data_hidden($zpass_clean[$grade], "zpass_{$grade}_clean", "zpass $grade cleaned up columns");
 
 	$constants_local = array_merge($constants['global'], $constants[$grade]);
-	$zpass_output[$grade] = zpass_output($zpass_clean[$grade], $constants_local);[$grade]
-;	dump_data_hidden($zpass_output[$grade], "zpass_{$grade}_output", "zpass $grade for output");
+	$zpass_output[$grade] = zpass_output($zpass_clean[$grade], $constants_local);[$grade];
+	dump_data_hidden($zpass_output[$grade], "zpass_{$grade}_output", "zpass $grade for output");
+
+	$max_rows = 1000;
+	$zpass_output_split[$grade] = split_data_at_row_count($zpass_output[$grade], $max_rows);
+	foreach ($zpass_output_split[$grade] as $i => $batch) {
+		dump_data_hidden($batch, "zpass_{$grade}_output_{$i}", "zpass $grade for output #$i");
+	}
 }
 
 echo "<hr />\n";
