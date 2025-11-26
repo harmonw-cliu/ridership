@@ -9,6 +9,7 @@ require_once "include/header.php";
 
 require_once "include/data_month_required.php";
 require_once "include/user_name_required.php";
+require_once "include/data_dir_required.php";
 
 require_once "vendor/autoload.php";
 
@@ -32,18 +33,6 @@ define('ELAPSED_INDEX', 'elapsed');
 define('COUNT_INDEX', 'count');
 define('SERVICE_NAME_INDEX', 'service_name'); 
 define('SERVICE_CODE_INDEX', 'service_code'); 
-
-function verify_dir($path) {
-	global $data_month;
-
-	if (! is_dir($path)) {
-		?>
-	<h1>Error: directory '<?=$data_month?>' does not exist!</h1>
-	Please <a href="upload.php?data_month=<?=$data_month?>&user_name=<?=user_name?>">upload the files for the report</a>
-		<?php
-		exit();
-	}
-}
 
 function dump_data($data, $label='dump_data()') {
 	echo '<table border="1">';
@@ -486,9 +475,6 @@ $constants = [
 	],
 ];
 
-
-include "include/data_dir.php";
-verify_dir($data_dir);
 
 $file_labels = [
 	'ZPASS' => 'Zpass File',
