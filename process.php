@@ -505,6 +505,7 @@ $error_msg = [
 	// examining the list of loaded extensions with phpinfo() may help.
 ];
 
+echo "az_user_data:<pre>"; print_r($_SESSION["az_user_data"]); echo "</pre>\n";
 echo "_GET:"; echo "<pre>"; print_r($_GET); echo "</pre>";
 echo "_POST:"; echo "<pre>"; print_r($_POST); echo "</pre>";
 echo "_FILES:"; echo "<pre>"; print_r($_FILES); echo "</pre>";
