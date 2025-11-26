@@ -9,6 +9,7 @@ session_start();
 
 if ($_SERVER["SERVER_NAME"] == "localhost") {
 	# bypass signon requirement
+	$_SESSION["az_user_data"] = ["userPrincipalName" => "FAKE@cliu.org"];
 	return;
 }
 
