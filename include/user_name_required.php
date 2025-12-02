@@ -1,6 +1,7 @@
 <?php
 
-$user_name = $_POST['user_name'] ?? $_GET['user_name'] ?? "";
+require_once "user_name.php";
+
 if (! $user_name) {
 	?>
 	<h2 style='color:red'>Error: no SSG Username passed</h2>
