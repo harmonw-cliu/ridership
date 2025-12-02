@@ -5,6 +5,8 @@ require_once "include/header.php";
 require_once "include/data_month_required.php";
 require_once "include/data_dir_required.php";
 
+require_once "include/file_paths_import.php";
+
 ?>
 <h2>Files in that directory:</h2>
 <table border="1">
@@ -17,14 +19,28 @@ foreach ($files as $file) {
 	if (preg_match('/^[.]/', $file)) {
 		continue;
 	}
-		?>
+	$full_path = $data_dir . "/" . $file;
+	?>
 	<tr>
 		<td>
-		<!-- <a href="view.php?data_month=<?=$file?>"><?=$file?></a> -->
-		<?=$file?>
+			<!-- <a href="view.php?data_month=<?=$file?>"><?=$file?></a> -->
+			<?=$file?>
 		</td>
-		<?php
-	}
+		<td>
+			(<?=$full_path?>)
+		</td>
+		<td>
+			<?php
+			if (in_array($full_path, $file_paths_import)) {
+				echo "Import (uploaded) file";
+			} elseif (preg_match('/^test_excel_output_(EI|SA)_[0-9]+.xlsx$/', $file)) {
+				# php note: "1"==yes, "0"==no, "false"==failure
+				echo "Export (produced) file";
+			} else {
+				echo "Other";
+			}
+			?>
+		</td>
 	</tr>
 	<?php
 }
