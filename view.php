@@ -15,11 +15,14 @@ require_once "include/file_paths_export.php";
 
 echo "DEBUG: file_paths_import =<pre>"; print_r($file_paths_import); echo "</pre>\n";
 
+function is_visible_file($file) {
+	return (! is_hidden_file($file));
+}
+
 $files = scandir($data_dir, SCANDIR_SORT_ASCENDING);
+$files = array_filter($files, 'is_visible_file');
+
 foreach ($files as $file) {
-	if (is_hidden_file($file)) {
-		continue;
-	}
 	$full_path = $data_dir . "/" . $file;
 	?>
 	<tr>
