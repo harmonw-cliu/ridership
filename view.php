@@ -7,21 +7,24 @@ require_once "include/data_dir_required.php";
 
 ?>
 <h2>Files in that directory:</h2>
-<ul>
+<table border="1">
 <?php
 $files = scandir($data_dir, SCANDIR_SORT_ASCENDING);
 foreach ($files as $file) {
 	if (! preg_match('/^[.]/', $file)) {
 		?>
-	<li>
+	<tr>
+		<td>
 		<!-- <a href="view.php?data_month=<?=$file?>"><?=$file?></a> -->
 		<?=$file?>
-	</li>
+		</td>
 		<?php
 	}
+	</tr>
+	<?php
 }
 ?>
-</ul>
+</table>
 
 </body>
 </html>
