@@ -32,7 +32,9 @@ $file_paths = [];
 foreach ($file_labels as $file_id => $file_label) {
 	$real_name = "$data_dir/$file_id.xlsx";
 	$file_paths[$file_id] = $real_name;
+}
 
+foreach ($file_labels as $file_id => $file_label) {
 	$File = $_FILES[$file_id] ?? ['error' => 4];
 	$error = $File['error'];
 	if ($error == 4) {
@@ -48,6 +50,7 @@ foreach ($file_labels as $file_id => $file_label) {
 	} else {
 		$tmp_name = $File['tmp_name'];
 		$orig_name = $File['name'];
+		$real_name = $file_paths[$file_id];
 		echo "File '$file_id':<br />\n";
 		echo "... temp " . "'" . $tmp_name . "'" . "<br />\n";
 		echo "... orig " . "'" . $orig_name . "'" . "<br />\n";
