@@ -12,4 +12,3 @@ function verify_dir($path) {
 }
 include "include/data_dir.php";
 verify_dir($data_dir);
-?>

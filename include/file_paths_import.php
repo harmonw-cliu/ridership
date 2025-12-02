@@ -19,4 +19,3 @@ function is_import_path($full_path) {
 	global $file_paths_import;
 	return in_array($full_path, $file_paths_import);
 }
-?>

@@ -30,4 +30,3 @@ if ($_SERVER["HTTPS"] != "on") {
 
 	header($pageURL);
 }
-?>

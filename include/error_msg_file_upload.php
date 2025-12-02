@@ -10,4 +10,3 @@ $error_msg_file_upload = [
 	// PHP does not provide a way to ascertain which extension caused the file upload to stop;
 	// examining the list of loaded extensions with phpinfo() may help.
 ];
-?>

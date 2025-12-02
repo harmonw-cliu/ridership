@@ -14,4 +14,3 @@ function safe_mkdir($path) {
 
 include "include/data_dir.php";
 safe_mkdir($data_dir);
-?>

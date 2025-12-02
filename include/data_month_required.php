@@ -20,4 +20,3 @@ if ($error_message) {
 	<h2 style='color:green'>Month for data: <?=$data_month?></h2>
 	<?php
 }
-?>

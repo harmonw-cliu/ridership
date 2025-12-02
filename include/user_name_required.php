@@ -18,4 +18,3 @@ if (! $user_name) {
 	<h2 style='color:green'>Your SSG Username: <?=$user_name?></h2>
 	<?php
 }
-?>
