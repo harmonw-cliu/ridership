@@ -11,6 +11,8 @@ require_once "include/data_month_required.php";
 require_once "include/user_name_required.php";
 require_once "include/data_dir_required.php";
 
+require_once "include/file_paths_export.php";
+
 require_once "vendor/autoload.php";
 
 use Shuchkin\SimpleXLSX;
@@ -620,10 +622,6 @@ foreach (['EI', 'SA'] as $grade) {
 		$filename = export_file_path($data_dir, $grade, $i);
 		export_data_as_excel($batch, $filename, 'Sheet Name Goes Here');
 	}
-}
-
-function export_file_path($data_dir, $grade, $i) {
-	return "upload/2025-10/test_excel_output_{$grade}_{$i}.xlsx";
 }
 
 echo "<hr />\n";
