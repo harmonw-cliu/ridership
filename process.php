@@ -494,10 +494,11 @@ $error_msg = [
 	// examining the list of loaded extensions with phpinfo() may help.
 ];
 
-echo "az_user_data:<pre>"; print_r($_SESSION["az_user_data"]); echo "</pre>\n";
-echo "_GET:"; echo "<pre>"; print_r($_GET); echo "</pre>";
-echo "_POST:"; echo "<pre>"; print_r($_POST); echo "</pre>";
-echo "_FILES:"; echo "<pre>"; print_r($_FILES); echo "</pre>";
+// echo "az_user_data:<pre>"; print_r($_SESSION["az_user_data"]); echo "</pre>\n";
+// echo "_GET:"; echo "<pre>"; print_r($_GET); echo "</pre>";
+// echo "_POST:"; echo "<pre>"; print_r($_POST); echo "</pre>";
+// echo "_FILES:"; echo "<pre>"; print_r($_FILES); echo "</pre>";
+
 $file_paths = [];
 foreach ($file_labels as $file_id => $file_label) {
 	$file_name = "$file_id.xlsx";
