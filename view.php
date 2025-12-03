@@ -97,11 +97,7 @@ if ($other_files) {
 		?>
 	<tr>
 		<td>
-			<!-- <a href="view.php?data_month=<?=$basename?>"><?=$basename?></a> -->
 			<?=$basename?>
-		</td>
-		<td>
-			(<?=$full_path?>)
 		</td>
 	</tr>
 		<?php
