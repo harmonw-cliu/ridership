@@ -46,7 +46,7 @@ foreach ($file_labels_import as $file_id => $file_label) {
 $files_needed = 0;
 ?>
 <table>
-	<form action="./" method="post" enctype="multipart/form-data">
+	<form action="upload.php" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="data_month" value="<?=$data_month?>">
 		<input type="hidden" name="user_name" value="<?=$user_name?>">
 		<?php
