@@ -617,10 +617,13 @@ foreach (['EI', 'SA'] as $grade) {
 	}
 
 	foreach ($zpass_output_split as $i => $batch) {
-		$filename = "upload/2025-10/test_excel_output_{$grade}_{$i}.xlsx";
+		$filename = export_file_path($data_dir, $grade, $i);
 		export_data_as_excel($batch, $filename, 'Sheet Name Goes Here');
 	}
+}
 
+function export_file_path($data_dir, $grade, $i) {
+	return "upload/2025-10/test_excel_output_{$grade}_{$i}.xlsx";
 }
 
 echo "<hr />\n";
