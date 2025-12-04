@@ -508,6 +508,14 @@ foreach ($file_labels as $file_id => $file_label) {
 	$file_paths[$file_id] = $real_name;
 }
 $files_needed = 0;
+foreach ($file_labels as $file_id => $file_label) {
+	$file_path = $file_paths[$file_id] ?? "";
+	if ($file_path && file_exists($file_path)) {
+		continue;
+	} else {
+		$files_needed++;
+	}
+}
 ?>
 <table>
 	<tr>
@@ -532,7 +540,6 @@ foreach ($file_labels as $file_id => $file_label) {
 			?>
 			<span style='font-weight:bold; color:red'><?=$file_name?> MISSING</span>
 			<?php
-			$files_needed++;
 		}
 		?>
 		</td>
