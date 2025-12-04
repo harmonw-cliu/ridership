@@ -13,8 +13,8 @@ require_once "include/data_dir_required.php";
 
 require_once "include/file_paths_export.php";
 require_once "include/array_data_processing.php";
-
 require_once "include/show_array.php";
+require_once "include/time_conversion.php";
 
 require_once "include/excel_read.php";
 require_once "include/excel_write.php";
@@ -77,13 +77,6 @@ function split_zonar_by_grade($data) {
 
 function filter_data_by_has_id($data) {
 	return filter_data_by_column_not_blank(STUDENT_INDEX, $data);
-}
-
-function convert_time_to_hours($time) {
-	list($hours, $minutes) = explode(':', $time);
-	$hours = (int)$hours;
-	$minutes = (int)$minutes;
-	return $hours + ($minutes / 24);
 }
 
 function data_add_columns_day_time($data) {
