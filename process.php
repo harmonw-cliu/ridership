@@ -19,8 +19,6 @@ require_once "include/show_array.php";
 require_once "include/excel_read.php";
 require_once "include/excel_write.php";
 
-use \avadim\FastExcelWriter\Excel;
-
 define('LAST_NAME_INDEX', 0);
 define('FIRST_NAME_INDEX', 1);
 define('CARD_INDEX', 2);
@@ -276,19 +274,6 @@ function zpass_output($data, $constants) {
 	}
 
 	return $answer;
-}
-
-function export_data_as_excel($data, $filename, $sheetname='Sheet1') {
-	$excel = Excel::create([$sheetname]);
-	$sheet = $excel->sheet();
-	foreach ($data as $row) {
-		$rowOptions = [
-			'height' => 20,
-		];
-		$sheet->writeRow($row, $rowOptions);
-	}
-	$excel->save($filename);
-	echo "<h2 style='color: green'>DEBUG: saved excel data to '$filename'</h2>\n";
 }
 
 // strftime is deprecated as of PHP 8.1: use date() or DateTime::format() instead
