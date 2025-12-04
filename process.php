@@ -48,19 +48,23 @@ function load_xls($filename) {
 	}
 }
 
-define('SSG_STUDENT_INDEX', 1);
-function extract_studentIDs($data) {
-	$ids_column = array_map(
-		fn($row) => $row[SSG_STUDENT_INDEX],
+function extract_one_column($data, $column_id) {
+	$output = array_map(
+		fn($row) => $row[$column_id],
 		$data,
 	);
-	return $ids_column;
+	return $output;
+}
+
+define('SSG_STUDENT_INDEX', 1);
+
+function extract_studentIDs($data) {
+	return extract_one_column($data, SSG_STUDENT_INDEX);
 }
 
 function extract_studentIDs_xls($filename) {
 	$data = load_xls($filename);
-	$ids_column = extract_studentIDs($data);
-	return $ids_column;
+	return extract_studentIDs($data);
 }
 
 function remove_columns_by_indexes($column_list, $data) {
