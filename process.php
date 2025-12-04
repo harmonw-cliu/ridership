@@ -518,10 +518,6 @@ foreach ($file_labels as $file_id => $file_label) {
 }
 ?>
 <table>
-	<tr>
-		<td align="right">Month for data (YYYY-MM)</td>
-		<td><span style='font-weight:bold'><?=$data_month?></span></td>
-	</tr>
 <?php
 foreach ($file_labels as $file_id => $file_label) {
 	?>
