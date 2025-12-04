@@ -38,7 +38,7 @@ function split_rows_by_column_data_present($data, $column_index, $allow_list) {
 		$answer[$bucket] = [$header];
 	}
 
-	foreach ($data as $row) {
+	foreach ($body as $row) {
 		$value = $row[$column_index];
 		$found = in_array($value, $allow_list);
 		$bucket = ($found ? 'ok' : 'error');
