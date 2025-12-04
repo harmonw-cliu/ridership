@@ -23,31 +23,7 @@ require_once "include/zpass_data_conversion.php";
 require_once "include/excel_read.php";
 require_once "include/excel_write.php";
 
-// strftime is deprecated as of PHP 8.1: use date() or DateTime::format() instead
-// python format: "%m/%d/%Y %I:%M:%S %p"
-// php format:    "m/d/Y h:i:s A"
-// month, day, hour, minute, and second have leading zeros
-// year has four digits
-// time is in a 12-hour clock with AM/PM at the end
-date_default_timezone_set('EST');
-$current_timestamp = date("m/d/Y h:i:s A");
-
-$constants = [
-	'global' => [
-		'uploaded_by' => $user_name,
-		'timestamp' => $current_timestamp,
-	],
-	'EI' => [
-		'district_code' => '1072E',
-		'service_type' => 'ETR',
-		'diagnosis_code' => 'R6250',
-	],
-	'SA' => [
-		'district_code' => '1072',
-		'service_type' => 'TR',
-		'diagnosis_code' => 'R6889',
-	],
-];
+require_once "include/zpass_constants.php";
 
 if ($files_missing) {
 	?>
@@ -148,7 +124,7 @@ foreach (['EI', 'SA'] as $grade) {
 	$zpass_clean = zpass_clean($zpass_split_id_day, $student_id_replacements);
 	show_array_hidden($zpass_clean, "zpass_{$grade}_clean", "zpass $grade cleaned up columns");
 
-	$constants_local = array_merge($constants['global'], $constants[$grade]);
+	$constants_local = array_merge($zpass_constants['global'], $zpass_constants[$grade]);
 	$zpass_output_all = zpass_output($zpass_clean, $constants_local);[$grade];
 	show_array_hidden($zpass_output_all, "zpass_{$grade}_output", "zpass $grade for output");
 
