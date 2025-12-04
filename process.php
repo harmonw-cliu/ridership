@@ -34,7 +34,7 @@ $current_timestamp = date("m/d/Y h:i:s A");
 
 $constants = [
 	'global' => [
-		'uploaded_by' => 'DRIGHI',
+		'uploaded_by' => $user_name,
 		'timestamp' => $current_timestamp,
 	],
 	'EI' => [
