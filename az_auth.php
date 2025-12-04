@@ -1,10 +1,7 @@
 <?php
 
-<<<<<<< HEAD
 namespace FakeDebugHeader;
 
-=======
->>>>>>> refs/remotes/origin/main
 require_once "include/debug_header.php";
 
 //This login script is based on Sami Sipponen's Simple Azure Oauth2 Example with PHP:
