@@ -85,6 +85,7 @@ if ($files_missing) {
 <table>
 	<?php
 	foreach ($file_labels_import as $file_id => $file_label) {
+		$file_path = $file_paths_import[$file_id];
 		?>
 	<tr>
 		<td align="right">
