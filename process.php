@@ -11,7 +11,9 @@ require_once "include/data_month_required.php";
 require_once "include/user_name_required.php";
 require_once "include/data_dir_required.php";
 
+require_once "include/file_paths_import.php";
 require_once "include/file_paths_export.php";
+
 require_once "include/array_data_processing.php";
 require_once "include/show_array.php";
 
@@ -45,12 +47,6 @@ $constants = [
 		'service_type' => 'TR',
 		'diagnosis_code' => 'R6889',
 	],
-];
-
-$file_labels_import = [
-	'ZPASS' => 'Zpass File',
-	'EI_IPE' => 'Early Intervention IPE data',
-	'SA_IPE' => 'School-Age IPE data',
 ];
 
 $error_msg = [
