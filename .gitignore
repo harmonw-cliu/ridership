@@ -10,5 +10,5 @@ vendor/
 upload/
 
 # files containing secrets
-include/secrets.php
+include/**/secrets.php
 
