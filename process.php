@@ -26,6 +26,9 @@ require_once "include/excel_write.php";
 require_once "include/zpass_constants.php";
 
 require_once "include/show_missing_files_and_exit.php";
+
+require_once "include/mysql_connect.php";
+
 ?>
 <h2>Processing ...</h2>
 <?php

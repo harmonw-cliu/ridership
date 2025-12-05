@@ -2,6 +2,8 @@
 require_once "include/az.php";
 require_once "include/header.php";
 
+require_once "include/mysql_connect.php";	// not required here, but we want to fail early if DB is broken
+
 $last_month = strtotime('-1 month');
 $default_data_month = date('Y-m', $last_month);
 
